@@ -1,0 +1,23 @@
+# Created by .ignore support plugin (hsz.mobi)
+### MyIgnore template
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+#idea
+.idea/
+*.iml
+target/
+log/
+*.log
+.project
+.settings/
+.svn/
+bin/
+.classpath
+classes/
+.idea/workspace.xml
+/.idea/
+out/
+/out/
+.class

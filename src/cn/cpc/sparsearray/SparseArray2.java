@@ -1,6 +1,8 @@
 package cn.cpc.sparsearray;
 
-public class SparseArray {
+import java.io.*;
+
+public class SparseArray2 {
 
 	public static void main(String[] args) {
 
@@ -52,26 +54,31 @@ public class SparseArray {
 		for (int i = 0; i < sparseArray.length; i++) {
 			System.out.printf("%d\t%d\t%d\t\n",sparseArray[i][0],sparseArray[i][1],sparseArray[i][2]);
 		}
-		//稀疏数组转二维数组
-		//创建二维数组
-		int chessArray2[][] = new int[sparseArray[0][0]][sparseArray[0][1]];
-		//给二维数组注入数值
-//		System.out.println("长度:"+sparseArray.length);
-		for (int i = 1; i < sparseArray.length; i++) {
-			chessArray2[sparseArray[i][0]][sparseArray[i][1]]=
-					sparseArray[i][2];
+		//存盘
+		BufferedWriter bos  =null;
+		try {
+			bos = new BufferedWriter((new FileWriter("1.txt")));
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("写入失败");
 		}
-		//二维数组
-		for (int[] row : chessArray2) {
-			for (int data : row) {
-				System.out.printf("%d\t",data);
+		for (int i = 0; i < sparseArray.length; i++) {
+			try {
+				bos.write(sparseArray[i][0]+","+sparseArray[i][1]+","+
+						sparseArray[i][2]);
+				bos.newLine();
+				bos.flush();
+			} catch (IOException e) {
+				e.printStackTrace();
+				System.out.println("写入失败");
 			}
-			System.out.println();
 		}
+        try {
+            bos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-		
-		
-		
-	}
+    }
 
 }
